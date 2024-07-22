@@ -7,18 +7,18 @@ model:
   NAME: BaseSeg
   encoder_args:
     NAME: PointNextEncoder
-    blocks: [1, 1, 1, 1, 1]
-    strides: [1, 4, 4, 4, 4]
-    sa_layers: 2 
+    blocks: [2, 2, 2, 2, 2]
+    strides: [1, 2, 2, 2, 2]
+    sa_layers: 3 
     sa_use_res: True 
-    width: 32
+    width: 64
     in_channels: 4
     expansion: 4
     radius: 0.1
     nsample: 32
     aggr_args:
       feature_type: 'dp_fj'
-      reduction: 'max'
+      reduction: 'mean'
     group_args:
       NAME: 'ballquery'
       normalize_dp: True
@@ -46,6 +46,6 @@ datatransforms:
   kwargs:
     color_drop: 0.2
     gravity_dim: 2
-    scale: [0.9, 1.1]
-    jitter_sigma: 0.005
-    jitter_clip: 0.02
+    scale: [0.8, 1.2]
+    jitter_sigma: 0.01
+    jitter_clip: 0.05
