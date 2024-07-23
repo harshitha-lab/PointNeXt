@@ -7,7 +7,7 @@ model:
   NAME: BaseSeg
   encoder_args:
     NAME: PointNextEncoder
-    blocks: [2, 2, 2, 2, 2]
+    blocks: [4, 3, 4, 1, 4]
     strides: [1, 2, 2, 2, 2]
     sa_layers: 3 
     sa_use_res: True 
@@ -47,5 +47,5 @@ datatransforms:
     color_drop: 0.2
     gravity_dim: 2
     scale: [0.8, 1.2]
-    jitter_sigma: 0.01
-    jitter_clip: 0.05
+    jitter_sigma: 0.02
+    jitter_clip: 0.06
